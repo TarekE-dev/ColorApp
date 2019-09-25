@@ -11,7 +11,7 @@ public class ColorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String[] colors = {"RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE", "PINK"};
+        String[] colors = {"RED", "YELLOW", "GREEN", "BLUE", "PURPLE"};
         ColorAdapter adapter = new ColorAdapter(this, colors);
         Spinner colorSpinner = (Spinner) findViewById(R.id.colorSpinner);
         colorSpinner.setAdapter(adapter);

@@ -5,6 +5,9 @@ import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class ColorAdapter extends BaseAdapter {
 
@@ -37,6 +40,11 @@ public class ColorAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
+        System.out.println((String) getItem(i));
+        TextView textView = new TextView(context);
+        textView.setText((String) getItem(i));
+        textView.setBackgroundColor(Color.parseColor((String) getItem(i)));
+        textView.setTextSize(25);
+        return textView;
     }
 }
