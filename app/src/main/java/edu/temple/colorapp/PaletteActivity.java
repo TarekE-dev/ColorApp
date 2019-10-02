@@ -2,6 +2,7 @@ package edu.temple.colorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -10,23 +11,29 @@ import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
-public class ColorActivity extends AppCompatActivity {
+public class PaletteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        String[] colors = {"RED", "YELLOW", "GREEN", "AQUA", "WHITE", "GRAY", "CYAN", "MAGENTA", "LIGHTGRAY", "DARKGRAY"};
+        getSupportActionBar().setTitle("Pallete Activity");
+        String[] colors = {"Please select a color", "RED", "YELLOW", "GREEN", "AQUA", "WHITE", "GRAY", "CYAN", "MAGENTA", "LIGHTGRAY", "DARKGRAY"};
         ColorAdapter adapter = new ColorAdapter(this, colors);
         Spinner colorSpinner = (Spinner) findViewById(R.id.colorSpinner);
+        colorSpinner.setSelection(0);
         colorSpinner.setAdapter(adapter);
         colorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                adapterView.setBackgroundColor(Color.WHITE);
-                view.setBackgroundColor(Color.WHITE);
-                TextView selected = (TextView) view;
-                getWindow().getDecorView().setBackgroundColor(Color.parseColor(selected.getText().toString()));
+                if( i != 0 ) {
+                    adapterView.setBackgroundColor(Color.WHITE);
+                    view.setBackgroundColor(Color.WHITE);
+                    TextView selected = (TextView) view;
+                    Intent newIntent = new Intent(PaletteActivity.this, CanvasActivity.class);
+                    newIntent.putExtra("color", selected.getText().toString());
+                    PaletteActivity.this.startActivity(newIntent);
+                }
             }
 
             @Override
