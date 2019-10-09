@@ -3,6 +3,7 @@ package edu.temple.colorapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -17,8 +18,9 @@ public class PaletteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Resources res = this.getResources();
         getSupportActionBar().setTitle("Pallete Activity");
-        String[] colors = {"Please select a color", "RED", "YELLOW", "GREEN", "AQUA", "WHITE", "GRAY", "CYAN", "MAGENTA", "LIGHTGRAY", "DARKGRAY"};
+        String[] colors = res.getStringArray(R.array.colors);
         ColorAdapter adapter = new ColorAdapter(this, colors);
         Spinner colorSpinner = (Spinner) findViewById(R.id.colorSpinner);
         colorSpinner.setSelection(0);

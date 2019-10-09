@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="colors">
+        <item>Por favor seleccione un color</item>
+        <item>ROJO</item>
+        <item>AMARILLO</item>
+        <item>VERDE</item>
+        <item>AGUA</item>
+        <item>BLANCO</item>
+        <item>GRIS</item>
+        <item>CYAN</item>
+        <item>MAGENTA</item>
+        <item>GRISCLARO</item>
+        <item>GRISOSCURO</item>
+    </string-array>
+</resources>

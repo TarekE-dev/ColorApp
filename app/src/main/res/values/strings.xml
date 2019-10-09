@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ColorApp</string>
+    <string-array name="colors">
+        <item>Please select a color</item>
+        <item>RED</item>
+        <item>YELLOW</item>
+        <item>GREEN</item>
+        <item>AQUA</item>
+        <item>WHITE</item>
+        <item>GRAY</item>
+        <item>CYAN</item>
+        <item>MAGENTA</item>
+        <item>LIGHTGRAY</item>
+        <item>DARKGRAY</item>
+    </string-array>
 </resources>
