@@ -13,10 +13,28 @@ public class ColorAdapter extends BaseAdapter {
 
     private Context context;
     private String[] colors;
+    private String[] translated;
+    private boolean isTranslated;
 
     public ColorAdapter(Context context, String[] colors){
         this.context = context;
         this.colors = colors;
+        translated = new String[colors.length];
+        this.translate();
+    }
+
+    private void translate(){
+
+        for(int i=1; i<colors.length; i++){
+            String[] split = colors[i].split(",");
+            if(split.length != 2){
+                System.out.println(colors[i]);
+                isTranslated = false;
+                return;
+            }
+            translated[i] = split[1];
+        }
+        isTranslated = true;
     }
 
 
@@ -40,11 +58,13 @@ public class ColorAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        System.out.println((String) getItem(i));
         TextView textView = new TextView(context);
-        textView.setText((String) getItem(i));
+        textView.setText(((String) getItem(i)).split(",")[0]);
         if(i != 0 ) {
-            textView.setBackgroundColor(Color.parseColor((String) getItem(i)));
+            if(isTranslated)
+                textView.setBackgroundColor(Color.parseColor((String) translated[i]));
+            else
+                textView.setBackgroundColor(Color.parseColor((String) getItem(i)));
         }
         textView.setTextSize(25);
         return textView;

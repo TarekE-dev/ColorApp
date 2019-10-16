@@ -20,9 +20,9 @@ public class PaletteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Resources res = this.getResources();
         getSupportActionBar().setTitle("Pallete Activity");
-        String[] colors = res.getStringArray(R.array.colors);
+        final String[] colors = res.getStringArray(R.array.colors);
         ColorAdapter adapter = new ColorAdapter(this, colors);
-        Spinner colorSpinner = (Spinner) findViewById(R.id.colorSpinner);
+        final Spinner colorSpinner = (Spinner) findViewById(R.id.colorSpinner);
         colorSpinner.setSelection(0);
         colorSpinner.setAdapter(adapter);
         colorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -33,7 +33,12 @@ public class PaletteActivity extends AppCompatActivity {
                     view.setBackgroundColor(Color.WHITE);
                     TextView selected = (TextView) view;
                     Intent newIntent = new Intent(PaletteActivity.this, CanvasActivity.class);
-                    newIntent.putExtra("color", selected.getText().toString());
+                    String color;
+                    String[] colorSplit = colors[i].split(",");
+                    if(colorSplit.length == 2)
+                        newIntent.putExtra("color", colorSplit[1]);
+                    else
+                        newIntent.putExtra("color", colorSplit[0]);
                     PaletteActivity.this.startActivity(newIntent);
                 }
             }

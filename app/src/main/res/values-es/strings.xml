@@ -2,15 +2,15 @@
 <resources>
     <string-array name="colors">
         <item>Por favor seleccione un color</item>
-        <item>ROJO</item>
-        <item>AMARILLO</item>
-        <item>VERDE</item>
-        <item>AGUA</item>
-        <item>BLANCO</item>
-        <item>GRIS</item>
-        <item>CYAN</item>
-        <item>MAGENTA</item>
-        <item>GRISCLARO</item>
-        <item>GRISOSCURO</item>
+        <item>ROJO,RED</item>
+        <item>AMARILLO,YELLOW</item>
+        <item>VERDE,GREEN</item>
+        <item>AGUA,AQUA</item>
+        <item>BLANCO,WHITE</item>
+        <item>GRIS,GRAY</item>
+        <item>CYAN,CYAN</item>
+        <item>MAGENTA,MAGENTA</item>
+        <item>GRISCLARO,LIGHTGRAY</item>
+        <item>GRISOSCURO,DARKGRAY</item>
     </string-array>
 </resources>
